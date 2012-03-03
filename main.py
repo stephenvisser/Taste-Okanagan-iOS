@@ -16,73 +16,87 @@
 #
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
+from google.appengine.ext import db
+
+import webapp2
+import logging
+import json
+import datetime
+import sys
+import calendar
 
 CLASS_TYPE_STR = '__class'
 CLASS_VALUE_STR = 'value'
+ID_STR = '__id'
 
 def hook(dct):
     clsType = dct[CLASS_TYPE_STR]
     if clsType == 'date':
         return datetime.date.fromtimestamp(dct[CLASS_VALUE_STR])
     if clsType == 'time':
-        return datetime.time.fromtimestamp(dct[CLASS_VALUE_STR])
+        number = dct[CLASS_VALUE_STR]
+        hour = number / 60
+        minute = number % 60
+        return datetime.time(hour, minute)
     if clsType == 'email':
         return db.Email(dct[CLASS_VALUE_STR])
     if clsType == 'phone':
         return db.PhoneNumber(dct[CLASS_VALUE_STR])
     elif clsType == 'rating':
         return db.Rating(dct[CLASS_VALUE_STR])
-    elif clsType == 'custom':
-        # The constructor can't handle the clsType tag, so delete it!
-        dictCopy = dict((key,value) for key,value in dct.iteritems() if not key.startswith('__'))
-        return Data(**dictCopy)
-    return json.JSONDecoder.object_hook(dct)
-    
+     # The constructor can't handle the clsType tag, so delete it!
+    dictCopy = dict((key,value) for key,value in dct.iteritems() if not key.startswith('__'))
+    return globals()[clsType](**dictCopy).put()
+
 class DataEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime.date):
             return {CLASS_TYPE_STR: 'date', CLASS_VALUE_STR:calendar.timegm(obj.timetuple())}
         elif isinstance(obj, datetime.time):
-            return {CLASS_TYPE_STR: 'time', CLASS_VALUE_STR:calendar.timegm(obj.timetuple())}
-        elif isinstance(obj, datetime.date):
-            return {CLASS_TYPE_STR: 'date', CLASS_VALUE_STR:calendar.timegm(obj.timetuple())}
-        elif isinstance(obj,datetime.datetime):
-            return {CLASS_TYPE_STR: 'timestamp', 'value':calendar.timegm(obj.utctimetuple())}
-        elif isinstance(obj,Data):
+            return {CLASS_TYPE_STR: 'time', CLASS_VALUE_STR:obj.hour * 60 + obj.minute}
+        elif isinstance(obj, db.PhoneNumber):
+            return {CLASS_TYPE_STR: 'date', CLASS_VALUE_STR:obj}
+        elif isinstance(obj, db.Email):
+            return {CLASS_TYPE_STR: 'email', CLASS_VALUE_STR: obj}
+        elif isinstance(obj,db.Rating):
+            return {CLASS_TYPE_STR: 'rating', CLASS_VALUE_STR: obj}
+        elif isinstance(obj,db.Model):
             dictCopy = obj._entity
-            dictCopy[CLASS_TYPE_STR] = 'data'
+            dictCopy[CLASS_TYPE_STR] = obj.kind()
             return dictCopy
-        return json.JSONEncoder.default(self, obj)
+        elif isinstance(obj,db.Key):
+            dictCopy = db.get(obj)._entity
+            dictCopy[CLASS_TYPE_STR] = obj.kind()
+            return dictCopy
 
-class WeeklyHours(db.Model):
-    """Models the hours of operation"""
-    monday_open = TimeProperty()
-    monday_close = TimeProperty()
-    tuesday_open = TimeProperty()
-    tuesday_close = TimeProperty()
-    wednesday_open = TimeProperty()
-    wednesday_close = TimeProperty()
-    thursday_open = TimeProperty()
-    thursday_close = TimeProperty()
-    friday_open = TimeProperty()
-    friday_close = TimeProperty()
-    saturday_open = TimeProperty()
-    saturday_close = TimeProperty()
-    sunday_open = TimeProperty()
-    sunday_close = TimeProperty()
-    exceptions = ListProperty(DateExeption)
-
-class DateExeption(db.Model):
+class DateException(db.Model):
     """Models an exception from the regular hours of operation"""
     date = db.DateProperty()
     new_open = db.TimeProperty()
     new_close = db.TimeProperty()
 
+class WeeklyHours(db.Model):
+    """Models the hours of operation"""
+    monday_open = db.TimeProperty()
+    monday_close = db.TimeProperty()
+    tuesday_open = db.TimeProperty()
+    tuesday_close = db.TimeProperty()
+    wednesday_open = db.TimeProperty()
+    wednesday_close = db.TimeProperty()
+    thursday_open = db.TimeProperty()
+    thursday_close = db.TimeProperty()
+    friday_open = db.TimeProperty()
+    friday_close = db.TimeProperty()
+    saturday_open = db.TimeProperty()
+    saturday_close = db.TimeProperty()
+    sunday_open = db.TimeProperty()
+    sunday_close = db.TimeProperty()
+    exceptions = db.ListProperty(db.Key)
+
 class Winery(db.Model):
     """Models a winery"""
     name = db.StringProperty(required=True)
     description = db.TextProperty()
-    hours = db.ListProperty()
     rating = db.RatingProperty()
     email = db.EmailProperty()
     phone = db.PhoneNumberProperty()
@@ -106,28 +120,20 @@ class RestServer(webapp.RequestHandler):
     log = logging.getLogger('API')
 
     def post(self):
-        #pop off the script name ('/api')
-        self.request.path_info_pop()
-
         #Load the JSON values that were sent to the server
-        newObject = json.loads(self.request.body, object_hook=hook)
+        newKey = json.loads(self.request.body, object_hook=hook)
+        self.log.info("imported: " + str(dir(newKey)))
+
         #Returns the ID that was created
-        self.response.write(str(newObject.put().id()))
-        result = memcache.get("listeners") or []
-        for token in result:
-            self.log.info('Sending message to: ' + token)
-            channel.send_message(token, self.request.body)
-        #This isn't really efficient, but for now, we will refresh the
-        #memcache value tags list every time we push a new value to the
-        #server.
-        taskqueue.add(url='/refresh')
+        self.response.write(str(newKey.id()))
     
     def get(self):
         #pop off the script name ('/api')
         self.request.path_info_pop()
 
         #forget about the leading '/' and seperate the Data type and the ID
-        split = self.request.path_info[1:].split(':')
+        split = self.request.path_info[1:].split('/')
+        self.log.info('after split:' + str(split))
         #If no ID, then we will return all objects of this type
         if len(split) == 1:
             everyItem = []
@@ -156,11 +162,5 @@ class RestServer(webapp.RequestHandler):
         else:
             db.delete(db.Key.from_path(split[0], int(split[1])))
 
-def main():
-    application = webapp.WSGIApplication([('/api/.*', RestServer)],
+app = webapp2.WSGIApplication([('/api.*', RestServer)],
                                          debug=True)
-    util.run_wsgi_app(application)
-
-
-if __name__ == '__main__':
-    main()
