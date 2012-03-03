@@ -8,9 +8,10 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
+#import "WineryListViewController.h"
+#import "WineryMapViewController.h"
+#import "EventListViewController.h"
 
-#import "SecondViewController.h"
 
 @implementation AppDelegate
 
@@ -21,16 +22,27 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1, *viewController2;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController_iPhone" bundle:nil];
-        viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController_iPhone" bundle:nil];
+    UIViewController *vcList, *vcMap, *vcEvents;
+    if (IS_IPHONE) {
+        vcList = [[WineryListViewController alloc] initWithNibName:@"WineryListViewController_iPhone" bundle:nil];
+        vcMap = [[WineryMapViewController alloc] initWithNibName:@"WineryMapViewController_iPhone" bundle:nil];
+        vcEvents = [[EventListViewController alloc] initWithNibName:@"EventListViewController_iPhone" bundle:nil];
     } else {
-        viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController_iPad" bundle:nil];
-        viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController_iPad" bundle:nil];
+        
     }
+    
+    UINavigationController *vcNavList, *vcNavMap, *vcNavEvents;
+    vcNavList = [[UINavigationController alloc] initWithRootViewController:vcList];
+    vcNavMap = [[UINavigationController alloc] initWithRootViewController:vcMap];
+    vcNavEvents = [[UINavigationController alloc] initWithRootViewController:vcEvents];
+    
+    vcNavList.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Wineries" image:nil tag:0];
+    vcNavMap.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:nil tag:0];
+    vcNavEvents.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Events" image:nil tag:0];
+    
+    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:vcNavList, vcNavMap, vcNavEvents, nil];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

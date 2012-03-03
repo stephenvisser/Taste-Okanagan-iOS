@@ -13,16 +13,14 @@
 		E110D7471502A80E00133C8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E110D7451502A80E00133C8B /* InfoPlist.strings */; };
 		E110D7491502A80E00133C8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E110D7481502A80E00133C8B /* main.m */; };
 		E110D74D1502A80E00133C8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E110D74C1502A80E00133C8B /* AppDelegate.m */; };
-		E110D7501502A80E00133C8B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E110D74F1502A80E00133C8B /* FirstViewController.m */; };
-		E110D7521502A80E00133C8B /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E110D7511502A80E00133C8B /* first.png */; };
-		E110D7541502A80E00133C8B /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E110D7531502A80E00133C8B /* first@2x.png */; };
-		E110D7571502A80E00133C8B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E110D7561502A80E00133C8B /* SecondViewController.m */; };
-		E110D7591502A80E00133C8B /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = E110D7581502A80E00133C8B /* second.png */; };
-		E110D75B1502A80E00133C8B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E110D75A1502A80E00133C8B /* second@2x.png */; };
-		E110D75E1502A80E00133C8B /* FirstViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E110D75C1502A80E00133C8B /* FirstViewController_iPhone.xib */; };
-		E110D7611502A80E00133C8B /* FirstViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E110D75F1502A80E00133C8B /* FirstViewController_iPad.xib */; };
-		E110D7641502A80E00133C8B /* SecondViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E110D7621502A80E00133C8B /* SecondViewController_iPhone.xib */; };
-		E110D7671502A80E00133C8B /* SecondViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E110D7651502A80E00133C8B /* SecondViewController_iPad.xib */; };
+		E1A228AF1502C5D400AAA726 /* WineryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228AD1502C5D400AAA726 /* WineryListViewController.m */; };
+		E1A228B01502C5D400AAA726 /* WineryListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228AE1502C5D400AAA726 /* WineryListViewController_iPhone.xib */; };
+		E1A228B41502C63A00AAA726 /* WineryMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228B21502C63A00AAA726 /* WineryMapViewController.m */; };
+		E1A228B51502C63A00AAA726 /* WineryMapViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228B31502C63A00AAA726 /* WineryMapViewController_iPhone.xib */; };
+		E1A228B91502C65E00AAA726 /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228B71502C65E00AAA726 /* EventListViewController.m */; };
+		E1A228BA1502C65E00AAA726 /* EventListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228B81502C65E00AAA726 /* EventListViewController_iPhone.xib */; };
+		E1A228BE1502C68300AAA726 /* WineryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228BC1502C68300AAA726 /* WineryDetailViewController.m */; };
+		E1A228BF1502C68300AAA726 /* WineryDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228BD1502C68300AAA726 /* WineryDetailViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,18 +34,18 @@
 		E110D74A1502A80E00133C8B /* Taste Okanagan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taste Okanagan-Prefix.pch"; sourceTree = "<group>"; };
 		E110D74B1502A80E00133C8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E110D74C1502A80E00133C8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E110D74E1502A80E00133C8B /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		E110D74F1502A80E00133C8B /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		E110D7511502A80E00133C8B /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		E110D7531502A80E00133C8B /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		E110D7551502A80E00133C8B /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		E110D7561502A80E00133C8B /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		E110D7581502A80E00133C8B /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		E110D75A1502A80E00133C8B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		E110D75D1502A80E00133C8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController_iPhone.xib; sourceTree = "<group>"; };
-		E110D7601502A80E00133C8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController_iPad.xib; sourceTree = "<group>"; };
-		E110D7631502A80E00133C8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController_iPhone.xib; sourceTree = "<group>"; };
-		E110D7661502A80E00133C8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController_iPad.xib; sourceTree = "<group>"; };
+		E1A228AC1502C5D400AAA726 /* WineryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryListViewController.h; sourceTree = "<group>"; };
+		E1A228AD1502C5D400AAA726 /* WineryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryListViewController.m; sourceTree = "<group>"; };
+		E1A228AE1502C5D400AAA726 /* WineryListViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineryListViewController_iPhone.xib; sourceTree = "<group>"; };
+		E1A228B11502C63A00AAA726 /* WineryMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryMapViewController.h; sourceTree = "<group>"; };
+		E1A228B21502C63A00AAA726 /* WineryMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryMapViewController.m; sourceTree = "<group>"; };
+		E1A228B31502C63A00AAA726 /* WineryMapViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineryMapViewController_iPhone.xib; sourceTree = "<group>"; };
+		E1A228B61502C65E00AAA726 /* EventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
+		E1A228B71502C65E00AAA726 /* EventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
+		E1A228B81502C65E00AAA726 /* EventListViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventListViewController_iPhone.xib; sourceTree = "<group>"; };
+		E1A228BB1502C68300AAA726 /* WineryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryDetailViewController.h; sourceTree = "<group>"; };
+		E1A228BC1502C68300AAA726 /* WineryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryDetailViewController.m; sourceTree = "<group>"; };
+		E1A228BD1502C68300AAA726 /* WineryDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineryDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,18 +94,7 @@
 			children = (
 				E110D74B1502A80E00133C8B /* AppDelegate.h */,
 				E110D74C1502A80E00133C8B /* AppDelegate.m */,
-				E110D74E1502A80E00133C8B /* FirstViewController.h */,
-				E110D74F1502A80E00133C8B /* FirstViewController.m */,
-				E110D7511502A80E00133C8B /* first.png */,
-				E110D7531502A80E00133C8B /* first@2x.png */,
-				E110D7551502A80E00133C8B /* SecondViewController.h */,
-				E110D7561502A80E00133C8B /* SecondViewController.m */,
-				E110D7581502A80E00133C8B /* second.png */,
-				E110D75A1502A80E00133C8B /* second@2x.png */,
-				E110D75C1502A80E00133C8B /* FirstViewController_iPhone.xib */,
-				E110D75F1502A80E00133C8B /* FirstViewController_iPad.xib */,
-				E110D7621502A80E00133C8B /* SecondViewController_iPhone.xib */,
-				E110D7651502A80E00133C8B /* SecondViewController_iPad.xib */,
+				E1A228A91502C55F00AAA726 /* View Controllers */,
 				E110D7431502A80E00133C8B /* Supporting Files */,
 			);
 			path = "Taste Okanagan";
@@ -122,6 +109,25 @@
 				E110D74A1502A80E00133C8B /* Taste Okanagan-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1A228A91502C55F00AAA726 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1A228AC1502C5D400AAA726 /* WineryListViewController.h */,
+				E1A228AD1502C5D400AAA726 /* WineryListViewController.m */,
+				E1A228AE1502C5D400AAA726 /* WineryListViewController_iPhone.xib */,
+				E1A228B11502C63A00AAA726 /* WineryMapViewController.h */,
+				E1A228B21502C63A00AAA726 /* WineryMapViewController.m */,
+				E1A228B31502C63A00AAA726 /* WineryMapViewController_iPhone.xib */,
+				E1A228B61502C65E00AAA726 /* EventListViewController.h */,
+				E1A228B71502C65E00AAA726 /* EventListViewController.m */,
+				E1A228B81502C65E00AAA726 /* EventListViewController_iPhone.xib */,
+				E1A228BB1502C68300AAA726 /* WineryDetailViewController.h */,
+				E1A228BC1502C68300AAA726 /* WineryDetailViewController.m */,
+				E1A228BD1502C68300AAA726 /* WineryDetailViewController_iPhone.xib */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,14 +181,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E110D7471502A80E00133C8B /* InfoPlist.strings in Resources */,
-				E110D7521502A80E00133C8B /* first.png in Resources */,
-				E110D7541502A80E00133C8B /* first@2x.png in Resources */,
-				E110D7591502A80E00133C8B /* second.png in Resources */,
-				E110D75B1502A80E00133C8B /* second@2x.png in Resources */,
-				E110D75E1502A80E00133C8B /* FirstViewController_iPhone.xib in Resources */,
-				E110D7611502A80E00133C8B /* FirstViewController_iPad.xib in Resources */,
-				E110D7641502A80E00133C8B /* SecondViewController_iPhone.xib in Resources */,
-				E110D7671502A80E00133C8B /* SecondViewController_iPad.xib in Resources */,
+				E1A228B01502C5D400AAA726 /* WineryListViewController_iPhone.xib in Resources */,
+				E1A228B51502C63A00AAA726 /* WineryMapViewController_iPhone.xib in Resources */,
+				E1A228BA1502C65E00AAA726 /* EventListViewController_iPhone.xib in Resources */,
+				E1A228BF1502C68300AAA726 /* WineryDetailViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,8 +197,10 @@
 			files = (
 				E110D7491502A80E00133C8B /* main.m in Sources */,
 				E110D74D1502A80E00133C8B /* AppDelegate.m in Sources */,
-				E110D7501502A80E00133C8B /* FirstViewController.m in Sources */,
-				E110D7571502A80E00133C8B /* SecondViewController.m in Sources */,
+				E1A228AF1502C5D400AAA726 /* WineryListViewController.m in Sources */,
+				E1A228B41502C63A00AAA726 /* WineryMapViewController.m in Sources */,
+				E1A228B91502C65E00AAA726 /* EventListViewController.m in Sources */,
+				E1A228BE1502C68300AAA726 /* WineryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,38 +213,6 @@
 				E110D7461502A80E00133C8B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E110D75C1502A80E00133C8B /* FirstViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E110D75D1502A80E00133C8B /* en */,
-			);
-			name = FirstViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		E110D75F1502A80E00133C8B /* FirstViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E110D7601502A80E00133C8B /* en */,
-			);
-			name = FirstViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		E110D7621502A80E00133C8B /* SecondViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E110D7631502A80E00133C8B /* en */,
-			);
-			name = SecondViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		E110D7651502A80E00133C8B /* SecondViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E110D7661502A80E00133C8B /* en */,
-			);
-			name = SecondViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -334,6 +306,7 @@
 				E110D76C1502A80E00133C8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

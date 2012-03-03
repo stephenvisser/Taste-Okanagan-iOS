@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  EventListViewController.h
 //  Taste Okanagan
 //
 //  Created by Jo-el van Bergen on 12-03-03.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface EventListViewController : UIViewController
 
 @end
