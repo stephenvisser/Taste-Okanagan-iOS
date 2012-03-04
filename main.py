@@ -76,13 +76,13 @@ class DataEncoder(json.JSONEncoder):
 
 class Hours(db.Model):
     """Models the hours of operation"""
-    open_time = db.TimeProperty()
-    close_time = db.TimeProperty()    
+    openTime = db.TimeProperty()
+    closeTime = db.TimeProperty()    
 
 class DateRule(db.Model):
     """Models an exception from the regular hours of operation"""
-    date = db.DateProperty()
-    new_hours = db.ReferenceProperty(Hours)
+    excDate = db.DateProperty()
+    newHours = db.ReferenceProperty(Hours)
 
 class WeeklyHours(db.Model):
     """Models the hours of operation"""
@@ -165,22 +165,31 @@ class RestServer(webapp.RequestHandler):
             db.delete(db.Key.from_path(split[0], int(split[1])))
 
 class View(webapp.RequestHandler):
+    log = logging.getLogger('view')
+
     def get(self):
         template_values = {'wineries':[winery.key().id()  for winery in Winery.all()]}
         template = jinja_environment.get_template('index.html')
         self.response.out.write(template.render(template_values))
+    
+    def toTime(self, string):
+        if len(string) == 0:
+            return None
+        asInt = int(string)
+        return datetime.time(asInt / 60, asInt % 60)
 
     def post(self):
-        m = Hours(open_time=self.req.get('monday_open'),close_time=self.req.get('monday_close')).put()
-        t = Hours(open_time=self.req.get('tuesday_open'),close_time=self.req.get('tuesday_close')).put()
-        w = Hours(open_time=self.req.get('wednesday_open'),close_time=self.req.get('wednesday_close')).put()
-        th = Hours(open_time=self.req.get('thursday_open'),close_time=self.req.get('thursday_close')).put()
-        f = Hours(open_time=self.req.get('friday_open'),close_time=self.req.get('friday_close')).put()
-        s = Hours(open_time=self.req.get('saturday_open'),close_time=self.req.get('saturday_close')).put()
-        su = Hours(open_time=self.req.get('sunday_open'),close_time=self.req.get('sunday_close')).put()
+        self.log.info(self.request.get('monday_open'))
+        m = Hours(open_time=self.toTime(self.request.get('monday_open')),close_time=self.toTime(self.request.get('monday_close'))).put()
+        t = Hours(open_time=self.toTime(self.request.get('tuesday_open')),close_time=self.toTime(self.request.get('tuesday_close'))).put()
+        w = Hours(open_time=self.toTime(self.request.get('wednesday_open')),close_time=self.toTime(self.request.get('wednesday_close'))).put()
+        th = Hours(open_time=self.toTime(self.request.get('thursday_open')),close_time=self.toTime(self.request.get('thursday_close'))).put()
+        f = Hours(open_time=self.toTime(self.request.get('friday_open')),close_time=self.toTime(self.request.get('friday_close'))).put()
+        s = Hours(open_time=self.toTime(self.request.get('saturday_open')),close_time=self.toTime(self.request.get('saturday_close'))).put()
+        su = Hours(open_time=self.toTime(self.request.get('sunday_open')),close_time=self.toTime(self.request.get('sunday_close'))).put()
         h = WeeklyHours(monday=m,tuesday=t,wednesday=w,thursday=th,friday=f,saturday=s,sunday=su).put()
         
-        winery = Winery(name=self.req.get('name'), description=self.req.get('description'), email=self.req.get('email'), phone=self.req.get('phone'), address=self.req.get('address'),hours=h).put()
+        winery = Winery(name=self.request.get('name'), description=self.request.get('description'), email=self.request.get('email'), phone=self.request.get('phone'), address=self.request.get('address'),hours=h).put()
 
         template_values = {'wineries':[winery.key().id()  for winery in Winery.all()]}
         template = jinja_environment.get_template('index.html')
