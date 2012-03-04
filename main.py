@@ -18,16 +18,21 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
 
+import jinja2
 import webapp2
 import logging
 import json
 import datetime
 import sys
 import calendar
+import os
 
 CLASS_TYPE_STR = '__class'
 CLASS_VALUE_STR = 'value'
 ID_STR = '__id'
+
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 def hook(dct):
     clsType = dct[CLASS_TYPE_STR]
@@ -69,33 +74,30 @@ class DataEncoder(json.JSONEncoder):
             dictCopy[CLASS_TYPE_STR] = obj.kind()
             return dictCopy
 
-class DateException(db.Model):
+class Hours(db.Model):
+    """Models the hours of operation"""
+    open_time = db.TimeProperty()
+    close_time = db.TimeProperty()    
+
+class DateRule(db.Model):
     """Models an exception from the regular hours of operation"""
     date = db.DateProperty()
-    new_open = db.TimeProperty()
-    new_close = db.TimeProperty()
+    new_hours = db.ReferenceProperty(Hours)
 
 class WeeklyHours(db.Model):
     """Models the hours of operation"""
-    monday_open = db.TimeProperty()
-    monday_close = db.TimeProperty()
-    tuesday_open = db.TimeProperty()
-    tuesday_close = db.TimeProperty()
-    wednesday_open = db.TimeProperty()
-    wednesday_close = db.TimeProperty()
-    thursday_open = db.TimeProperty()
-    thursday_close = db.TimeProperty()
-    friday_open = db.TimeProperty()
-    friday_close = db.TimeProperty()
-    saturday_open = db.TimeProperty()
-    saturday_close = db.TimeProperty()
-    sunday_open = db.TimeProperty()
-    sunday_close = db.TimeProperty()
+    monday = db.ReferenceProperty(Hours, collection_name="monday")
+    tuesday = db.ReferenceProperty(Hours, collection_name="tuesday")
+    wednesday = db.ReferenceProperty(Hours, collection_name="wednesday")
+    thursday = db.ReferenceProperty(Hours, collection_name="thursday")
+    friday = db.ReferenceProperty(Hours, collection_name="friday")
+    saturday = db.ReferenceProperty(Hours, collection_name="saturday")
+    sunday = db.ReferenceProperty(Hours, collection_name="sunday")
     exceptions = db.ListProperty(db.Key)
 
 class Winery(db.Model):
     """Models a winery"""
-    name = db.StringProperty(required=True)
+    name = db.StringProperty()
     description = db.TextProperty()
     rating = db.RatingProperty()
     email = db.EmailProperty()
@@ -162,5 +164,28 @@ class RestServer(webapp.RequestHandler):
         else:
             db.delete(db.Key.from_path(split[0], int(split[1])))
 
-app = webapp2.WSGIApplication([('/api.*', RestServer)],
+class View(webapp.RequestHandler):
+    def get(self):
+        template_values = {'wineries':[winery.key().id()  for winery in Winery.all()]}
+        template = jinja_environment.get_template('index.html')
+        self.response.out.write(template.render(template_values))
+
+    def post(self):
+        m = Hours(open_time=self.req.get('monday_open'),close_time=self.req.get('monday_close')).put()
+        t = Hours(open_time=self.req.get('tuesday_open'),close_time=self.req.get('tuesday_close')).put()
+        w = Hours(open_time=self.req.get('wednesday_open'),close_time=self.req.get('wednesday_close')).put()
+        th = Hours(open_time=self.req.get('thursday_open'),close_time=self.req.get('thursday_close')).put()
+        f = Hours(open_time=self.req.get('friday_open'),close_time=self.req.get('friday_close')).put()
+        s = Hours(open_time=self.req.get('saturday_open'),close_time=self.req.get('saturday_close')).put()
+        su = Hours(open_time=self.req.get('sunday_open'),close_time=self.req.get('sunday_close')).put()
+        h = WeeklyHours(monday=m,tuesday=t,wednesday=w,thursday=th,friday=f,saturday=s,sunday=su).put()
+        
+        winery = Winery(name=self.req.get('name'), description=self.req.get('description'), email=self.req.get('email'), phone=self.req.get('phone'), address=self.req.get('address'),hours=h).put()
+
+        template_values = {'wineries':[winery.key().id()  for winery in Winery.all()]}
+        template = jinja_environment.get_template('index.html')
+
+        self.response.out.write(template.render(template_values))
+
+app = webapp2.WSGIApplication([('/api.*', RestServer), ('.*',View)],
                                          debug=True)
