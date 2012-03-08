@@ -17,6 +17,7 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
+from google.appengine.api import urlfetch
 
 import jinja2
 import webapp2
@@ -26,6 +27,7 @@ import datetime
 import sys
 import calendar
 import os
+import re
 
 CLASS_TYPE_STR = '__class'
 CLASS_VALUE_STR = 'value'
@@ -38,11 +40,6 @@ def hook(dct):
     clsType = dct[CLASS_TYPE_STR]
     if clsType == 'date':
         return datetime.date.fromtimestamp(dct[CLASS_VALUE_STR])
-    if clsType == 'time':
-        number = dct[CLASS_VALUE_STR]
-        hour = number / 60
-        minute = number % 60
-        return datetime.time(hour, minute)
     if clsType == 'email':
         return db.Email(dct[CLASS_VALUE_STR])
     if clsType == 'phone':
@@ -55,34 +52,28 @@ def hook(dct):
 
 class DataEncoder(json.JSONEncoder):
     def default(self, obj):
-        if isinstance(obj, datetime.date):
-            return {CLASS_TYPE_STR: 'date', CLASS_VALUE_STR:calendar.timegm(obj.timetuple())}
-        elif isinstance(obj, datetime.time):
-            return {CLASS_TYPE_STR: 'time', CLASS_VALUE_STR:obj.hour * 60 + obj.minute}
-        elif isinstance(obj, db.PhoneNumber):
-            return {CLASS_TYPE_STR: 'date', CLASS_VALUE_STR:obj}
-        elif isinstance(obj, db.Email):
-            return {CLASS_TYPE_STR: 'email', CLASS_VALUE_STR: obj}
-        elif isinstance(obj,db.Rating):
-            return {CLASS_TYPE_STR: 'rating', CLASS_VALUE_STR: obj}
+        logging.getLogger('encoder').info('Encoding: ' + obj.__class__.__name__)
+        if isinstance(obj, datetime.datetime):
+            return obj.strftime('%Y/%m/%d')
         elif isinstance(obj,db.Model):
             dictCopy = obj._entity
             dictCopy[CLASS_TYPE_STR] = obj.kind()
+            dictCopy[ID_STR] = obj.key().id()
             return dictCopy
+        elif isinstance(obj,db.GeoPt):
+            return {CLASS_TYPE_STR: 'Location', 'latitude':obj.lat, 'longitude':obj.lon}
         elif isinstance(obj,db.Key):
-            dictCopy = db.get(obj)._entity
+            dictCopy = {}
+            if obj.kind()!='Winery':
+                dictCopy = db.get(obj)._entity
             dictCopy[CLASS_TYPE_STR] = obj.kind()
+            dictCopy[ID_STR] = obj.id()
             return dictCopy
 
 class Hours(db.Model):
     """Models the hours of operation"""
-    openTime = db.TimeProperty()
-    closeTime = db.TimeProperty()    
-
-class DateRule(db.Model):
-    """Models an exception from the regular hours of operation"""
-    excDate = db.DateProperty()
-    newHours = db.ReferenceProperty(Hours)
+    openTime = db.StringProperty()
+    closeTime = db.StringProperty()    
 
 class WeeklyHours(db.Model):
     """Models the hours of operation"""
@@ -93,7 +84,6 @@ class WeeklyHours(db.Model):
     friday = db.ReferenceProperty(Hours, collection_name="friday")
     saturday = db.ReferenceProperty(Hours, collection_name="saturday")
     sunday = db.ReferenceProperty(Hours, collection_name="sunday")
-    exceptions = db.ListProperty(db.Key)
 
 class Winery(db.Model):
     """Models a winery"""
@@ -103,15 +93,19 @@ class Winery(db.Model):
     email = db.EmailProperty()
     phone = db.PhoneNumberProperty()
     hours = db.ReferenceProperty(WeeklyHours)
+    address = db.PostalAddressProperty()
+    location = db.GeoPtProperty()
+    image = db.BlobProperty()
     
 class Event(db.Model):
     """Models an event"""
-    title = db.StringProperty(required=True);
-    description = db.StringProperty();
-    start_date = db.DateProperty();
-    start_time = db.TimeProperty();
-    end_date = db.DateProperty();
-    end_time = db.TimeProperty();
+    name = db.StringProperty()
+    description = db.TextProperty()
+    startDate = db.DateTimeProperty()
+    startTime = db.StringProperty()
+    endDate = db.DateTimeProperty()
+    endTime = db.StringProperty()
+    winery = db.ReferenceProperty(Winery)
 
 class RestServer(webapp.RequestHandler):
     '''
@@ -149,8 +143,9 @@ class RestServer(webapp.RequestHandler):
         else:
             #Convert the ID to an int, create a key and retrieve the object
             retrievedEntity = db.get(db.Key.from_path(split[0], int(split[1])))
+
             #Return the values in the entity dictionary
-            self.response.write(json.dumps(retrievedEntity, cls=DataEncoder))
+            self.response.write(DataEncoder().encode(retrievedEntity))
     
     def delete(self):
         #pop off the script name
@@ -168,33 +163,43 @@ class View(webapp.RequestHandler):
     log = logging.getLogger('view')
 
     def get(self):
-        template_values = {'wineries':[winery.key().id()  for winery in Winery.all()]}
+        template_values = {'wineries':[winery.key().id()  for winery in Winery.all()],'events':[event.key().id() for event in Event.all()]}
         template = jinja_environment.get_template('index.html')
         self.response.out.write(template.render(template_values))
     
     def toTime(self, string):
-        if len(string) == 0:
-            return None
-        asInt = int(string)
-        return datetime.time(asInt / 60, asInt % 60)
+        result = string.split('-')
+        if len(result) != 2:
+            return None;
+        oTime = result[0].strip()
+        cTime = result[1].strip()
+
+        return Hours(openTime=oTime,closeTime=cTime).put()
 
     def post(self):
-        self.log.info(self.request.get('monday_open'))
-        m = Hours(open_time=self.toTime(self.request.get('monday_open')),close_time=self.toTime(self.request.get('monday_close'))).put()
-        t = Hours(open_time=self.toTime(self.request.get('tuesday_open')),close_time=self.toTime(self.request.get('tuesday_close'))).put()
-        w = Hours(open_time=self.toTime(self.request.get('wednesday_open')),close_time=self.toTime(self.request.get('wednesday_close'))).put()
-        th = Hours(open_time=self.toTime(self.request.get('thursday_open')),close_time=self.toTime(self.request.get('thursday_close'))).put()
-        f = Hours(open_time=self.toTime(self.request.get('friday_open')),close_time=self.toTime(self.request.get('friday_close'))).put()
-        s = Hours(open_time=self.toTime(self.request.get('saturday_open')),close_time=self.toTime(self.request.get('saturday_close'))).put()
-        su = Hours(open_time=self.toTime(self.request.get('sunday_open')),close_time=self.toTime(self.request.get('sunday_close'))).put()
-        h = WeeklyHours(monday=m,tuesday=t,wednesday=w,thursday=th,friday=f,saturday=s,sunday=su).put()
-        
-        winery = Winery(name=self.request.get('name'), description=self.request.get('description'), email=self.request.get('email'), phone=self.request.get('phone'), address=self.request.get('address'),hours=h).put()
+        self.log.info(self.request.POST)
+        if self.request.get('winery_submit'):
+            m = self.toTime(self.request.get('monday'))
+            t = self.toTime(self.request.get('tuesday'))
+            w = self.toTime(self.request.get('wednesday'))
+            th = self.toTime(self.request.get('thursday'))
+            f = self.toTime(self.request.get('friday'))
+            s = self.toTime(self.request.get('saturday'))
+            su = self.toTime(self.request.get('sunday'))
+            h = WeeklyHours(monday=m,tuesday=t,wednesday=w,thursday=th,friday=f,saturday=s,sunday=su).put()
+            
+            lat_long = self.request.get('location').split(',')
+            loc = db.GeoPt(float(lat_long[0].strip()), float(lat_long[1].strip()))
+            
+            blb = db.Blob(self.request.get('picture').encode('base64'))
 
-        template_values = {'wineries':[winery.key().id()  for winery in Winery.all()]}
-        template = jinja_environment.get_template('index.html')
+            Winery(name=self.request.get('name'), description=self.request.get('description'), email=self.request.get('email'), phone=self.request.get('phone'), location=loc,hours=h, image=blb, address=db.PostalAddress(self.request.get('address')), rating=db.Rating(int(self.request.get('rating')))).put()
+        else:
+            wineryKey = db.Key.from_path('Winery',int(self.request.get("winery_id")))
+            sdate = datetime.datetime.strptime(self.request.get("start_date"), '%Y/%m/%d')
+            edate = datetime.datetime.strptime(self.request.get("end_date"), '%Y/%m/%d')
+            Event(name=self.request.get("name"),description=self.request.get("description"),winery=wineryKey,startDate=sdate,startTime=self.request.get("start_time").strip(),endDate=edate,endTime=self.request.get("end_time").strip()).put()
+        self.redirect('/')
 
-        self.response.out.write(template.render(template_values))
-
-app = webapp2.WSGIApplication([('/api.*', RestServer), ('.*',View)],
+app = webapp2.WSGIApplication([('/curlme', CurlMe),('/api.*', RestServer), ('.*',View)],
                                          debug=True)

@@ -37,41 +37,55 @@
 
   </header>
   <div role="main">
+<h3> Existing Wineries: </h3>
   <ul>
   {% for winery in wineries %}
       <li><a href="/api/Winery/{{winery}}">{{winery}}</a></li>
   {% endfor %}
   </ul>
-
-    <form method="post">
-        Name: <input type="text" name="name" /><br />
+<hr/>
+<h3>Existing Events: </h3>
+  <ul>
+  {% for event in events %}
+      <li><a href="/api/Event/{{event}}">{{event}}</a></li>
+  {% endfor %}
+  </ul>
+<hr/>
+    <h3>New Winery</h3>
+    <form method="post" enctype="multipart/form-data">
+        Name: <input type="text" name="name"/><br />
         Description: <input type="text" name="description" /><br />
         Email: <input type="text" name="email"/><br/>
         Phone: <input type="text" name="phone"/><br/>
-        Address: <input type="text" name="address"/><br/>
-        <table>
-            <tr>
-                <td><input type="text" name="monday_open"/></td>
-                <td><input type="text" name="tuesday_open"/></td>
-                <td><input type="text" name="wednesday_open"/></td>
-                <td><input type="text" name="thursday_open"/></td>
-                <td><input type="text" name="friday_open"/></td>
-                <td><input type="text" name="saturday_open"/></td>
-                <td><input type="text" name="sunday_open"/></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="monday_close"/></td>
-                <td><input type="text" name="tuesday_close"/></td>
-                <td><input type="text" name="wednesday_close"/></td>
-                <td><input type="text" name="thursday_close"/></td>
-                <td><input type="text" name="friday_close"/></td>
-                <td><input type="text" name="saturday_close"/></td>
-                <td><input type="text" name="sunday_close"/></td>
-            </tr>
-        </table>
-        <input type="submit" value="Done" />
+        Latitude / Longitude:  (comma seperated) <input type="text" name="location"/><br/>
+        Rating: (number between 0 and 100) <input type="text" name="rating"/><br/>
+        Postal Address:<input type="text" name="address"/><br/>
+        The beautiful picture! <input type="file" name="picture"/><br/>
+        <br/>
+        Time example: 9:30 - 15:30<br/>        
+        Monday <input type="text" name="monday"/><br/>
+        Tuesday<input type="text" name="tuesday"/><br/>
+        Wednesday<input type="text" name="wednesday"/><br/>
+        Thursday<input type="text" name="thursday"/><br/>
+        Friday<input type="text" name="friday"/><br/>
+        Saturday<input type="text" name="saturday"/><br/>
+        Sunday<input type="text" name="sunday"/><br/>
+
+        <input type="submit" value="Submit" name="winery_submit"/><br/>
     </form>
-  </div>
+  <hr/>
+    <h3>New Event</h3>
+    <form method="post">
+        Name: <input type="text" name="name"/><br />
+        Description: <input type="text" name="description" /><br />
+        Winery ID: <input type="text" name="winery_id"/><br/>
+        Start Date: (ex: 2008/12/31)<input type="text" name="start_date"/><br/>
+        Start Time:(ex: 23:59) <input type="text" name="start_time"/><br/>
+        End Date: <input type="text" name="end_date"/><br/>
+        End Time:<input type="text" name="end_time"/><br/>
+        <input type="submit" value="Submit" name="event_submit"/><br/>
+    </form>
+</div>
   <footer>
 
   </footer>
