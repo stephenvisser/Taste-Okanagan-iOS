@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37C543541513A97E006EDD6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C543531513A97E006EDD6D /* UIKit.framework */; };
+		37C543561513A97E006EDD6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C543551513A97E006EDD6D /* Foundation.framework */; };
+		37C543581513A97E006EDD6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C543571513A97E006EDD6D /* CoreGraphics.framework */; };
+		37C5435E1513A97E006EDD6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37C5435C1513A97E006EDD6D /* InfoPlist.strings */; };
+		37C543601513A97E006EDD6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C5435F1513A97E006EDD6D /* main.m */; };
+		37C543641513A97E006EDD6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543631513A97E006EDD6D /* AppDelegate.m */; };
+		37C543991513AA89006EDD6D /* adred.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C5436E1513AA89006EDD6D /* adred.png */; };
+		37C5439B1513AA89006EDD6D /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543701513AA89006EDD6D /* button.png */; };
+		37C5439C1513AA89006EDD6D /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543731513AA89006EDD6D /* DataSource.m */; };
+		37C5439D1513AA89006EDD6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37C543751513AA89006EDD6D /* InfoPlist.strings */; };
+		37C5439E1513AA89006EDD6D /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543781513AA89006EDD6D /* Event.m */; };
+		37C5439F1513AA89006EDD6D /* EventListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C543791513AA89006EDD6D /* EventListViewController_iPhone.xib */; };
+		37C543A01513AA89006EDD6D /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C5437B1513AA89006EDD6D /* EventListViewController.m */; };
+		37C543A11513AA89006EDD6D /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C5437C1513AA89006EDD6D /* events.png */; };
+		37C543A21513AA89006EDD6D /* events@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C5437D1513AA89006EDD6D /* events@2x.png */; };
+		37C543A31513AA89006EDD6D /* Hours.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C5437F1513AA89006EDD6D /* Hours.m */; };
+		37C543A51513AA89006EDD6D /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543811513AA89006EDD6D /* list.png */; };
+		37C543A61513AA89006EDD6D /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543821513AA89006EDD6D /* list@2x.png */; };
+		37C543A71513AA89006EDD6D /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543841513AA89006EDD6D /* Location.m */; };
+		37C543A81513AA89006EDD6D /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543851513AA89006EDD6D /* map.png */; };
+		37C543A91513AA89006EDD6D /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543861513AA89006EDD6D /* map@2x.png */; };
+		37C543AA1513AA89006EDD6D /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543881513AA89006EDD6D /* Singleton.m */; };
+		37C543AC1513AA89006EDD6D /* WeeklyHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C5438B1513AA89006EDD6D /* WeeklyHours.m */; };
+		37C543AD1513AA89006EDD6D /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C5438D1513AA89006EDD6D /* Winery.m */; };
+		37C543AE1513AA89006EDD6D /* WineryDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C5438E1513AA89006EDD6D /* WineryDetailViewController_iPhone.xib */; };
+		37C543AF1513AA89006EDD6D /* WineryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543901513AA89006EDD6D /* WineryDetailViewController.m */; };
+		37C543B01513AA89006EDD6D /* WineryListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C543911513AA89006EDD6D /* WineryListViewController_iPhone.xib */; };
+		37C543B11513AA89006EDD6D /* WineryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543931513AA89006EDD6D /* WineryListViewController.m */; };
+		37C543B21513AA89006EDD6D /* WineryMapViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C543941513AA89006EDD6D /* WineryMapViewController_iPhone.xib */; };
+		37C543B31513AA89006EDD6D /* WineryMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543961513AA89006EDD6D /* WineryMapViewController.m */; };
+		37C543B51513AA89006EDD6D /* woodred.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543981513AA89006EDD6D /* woodred.png */; };
+		37C543B81513AABD006EDD6D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543B71513AABD006EDD6D /* icon.png */; };
+		37C543BC1513ABBD006EDD6D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C543BB1513ABBD006EDD6D /* CoreLocation.framework */; };
+		37C543BE1513ABE1006EDD6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C543BD1513ABE1006EDD6D /* MapKit.framework */; };
+		37C543C11513ACB1006EDD6D /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C543C01513ACB1006EDD6D /* Base64.m */; };
+		37C543C31513AD68006EDD6D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C543C21513AD68006EDD6D /* Default@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		37C5434F1513A97E006EDD6D /* TasteOkanakan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteOkanakan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C543531513A97E006EDD6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		37C543551513A97E006EDD6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		37C543571513A97E006EDD6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		37C5435B1513A97E006EDD6D /* TasteOkanakan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TasteOkanakan-Info.plist"; sourceTree = "<group>"; };
+		37C5435D1513A97E006EDD6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37C5435F1513A97E006EDD6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		37C543611513A97E006EDD6D /* TasteOkanakan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TasteOkanakan-Prefix.pch"; sourceTree = "<group>"; };
+		37C543621513A97E006EDD6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		37C543631513A97E006EDD6D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		37C5436E1513AA89006EDD6D /* adred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = adred.png; path = TasteOkanakan/adred.png; sourceTree = "<group>"; };
+		37C543701513AA89006EDD6D /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = TasteOkanakan/button.png; sourceTree = "<group>"; };
+		37C543711513AA89006EDD6D /* ContentAndStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentAndStyle.h; sourceTree = "<group>"; };
+		37C543721513AA89006EDD6D /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		37C543731513AA89006EDD6D /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		37C543761513AA89006EDD6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		37C543771513AA89006EDD6D /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		37C543781513AA89006EDD6D /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		37C543791513AA89006EDD6D /* EventListViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventListViewController_iPhone.xib; path = TasteOkanakan/EventListViewController_iPhone.xib; sourceTree = "<group>"; };
+		37C5437A1513AA89006EDD6D /* EventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
+		37C5437B1513AA89006EDD6D /* EventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
+		37C5437C1513AA89006EDD6D /* events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = events.png; path = TasteOkanakan/events.png; sourceTree = "<group>"; };
+		37C5437D1513AA89006EDD6D /* events@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "events@2x.png"; path = "TasteOkanakan/events@2x.png"; sourceTree = "<group>"; };
+		37C5437E1513AA89006EDD6D /* Hours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hours.h; sourceTree = "<group>"; };
+		37C5437F1513AA89006EDD6D /* Hours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hours.m; sourceTree = "<group>"; };
+		37C543811513AA89006EDD6D /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = TasteOkanakan/list.png; sourceTree = "<group>"; };
+		37C543821513AA89006EDD6D /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list@2x.png"; path = "TasteOkanakan/list@2x.png"; sourceTree = "<group>"; };
+		37C543831513AA89006EDD6D /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		37C543841513AA89006EDD6D /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		37C543851513AA89006EDD6D /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = TasteOkanakan/map.png; sourceTree = "<group>"; };
+		37C543861513AA89006EDD6D /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@2x.png"; path = "TasteOkanakan/map@2x.png"; sourceTree = "<group>"; };
+		37C543871513AA89006EDD6D /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		37C543881513AA89006EDD6D /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		37C5438A1513AA89006EDD6D /* WeeklyHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyHours.h; sourceTree = "<group>"; };
+		37C5438B1513AA89006EDD6D /* WeeklyHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyHours.m; sourceTree = "<group>"; };
+		37C5438C1513AA89006EDD6D /* Winery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Winery.h; sourceTree = "<group>"; };
+		37C5438D1513AA89006EDD6D /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
+		37C5438E1513AA89006EDD6D /* WineryDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineryDetailViewController_iPhone.xib; path = TasteOkanakan/WineryDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		37C5438F1513AA89006EDD6D /* WineryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryDetailViewController.h; sourceTree = "<group>"; };
+		37C543901513AA89006EDD6D /* WineryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryDetailViewController.m; sourceTree = "<group>"; };
+		37C543911513AA89006EDD6D /* WineryListViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineryListViewController_iPhone.xib; path = TasteOkanakan/WineryListViewController_iPhone.xib; sourceTree = "<group>"; };
+		37C543921513AA89006EDD6D /* WineryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryListViewController.h; sourceTree = "<group>"; };
+		37C543931513AA89006EDD6D /* WineryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryListViewController.m; sourceTree = "<group>"; };
+		37C543941513AA89006EDD6D /* WineryMapViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WineryMapViewController_iPhone.xib; path = TasteOkanakan/WineryMapViewController_iPhone.xib; sourceTree = "<group>"; };
+		37C543951513AA89006EDD6D /* WineryMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryMapViewController.h; sourceTree = "<group>"; };
+		37C543961513AA89006EDD6D /* WineryMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryMapViewController.m; sourceTree = "<group>"; };
+		37C543981513AA89006EDD6D /* woodred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = woodred.png; path = TasteOkanakan/woodred.png; sourceTree = "<group>"; };
+		37C543B71513AABD006EDD6D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		37C543BB1513ABBD006EDD6D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37C543BD1513ABE1006EDD6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		37C543BF1513ACB1006EDD6D /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		37C543C01513ACB1006EDD6D /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		37C543C21513AD68006EDD6D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37C5434C1513A97E006EDD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C543BE1513ABE1006EDD6D /* MapKit.framework in Frameworks */,
+				37C543BC1513ABBD006EDD6D /* CoreLocation.framework in Frameworks */,
+				37C543541513A97E006EDD6D /* UIKit.framework in Frameworks */,
+				37C543561513A97E006EDD6D /* Foundation.framework in Frameworks */,
+				37C543581513A97E006EDD6D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37C543441513A97E006EDD6D = {
+			isa = PBXGroup;
+			children = (
+				37C543C21513AD68006EDD6D /* Default@2x.png */,
+				37C543B71513AABD006EDD6D /* icon.png */,
+				37C543C41513AE54006EDD6D /* UI */,
+				37C543741513AA89006EDD6D /* en.lproj */,
+				37C543591513A97E006EDD6D /* TasteOkanakan */,
+				37C543521513A97E006EDD6D /* Frameworks */,
+				37C543501513A97E006EDD6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37C543501513A97E006EDD6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37C5434F1513A97E006EDD6D /* TasteOkanakan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37C543521513A97E006EDD6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37C543BD1513ABE1006EDD6D /* MapKit.framework */,
+				37C543BB1513ABBD006EDD6D /* CoreLocation.framework */,
+				37C543531513A97E006EDD6D /* UIKit.framework */,
+				37C543551513A97E006EDD6D /* Foundation.framework */,
+				37C543571513A97E006EDD6D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37C543591513A97E006EDD6D /* TasteOkanakan */ = {
+			isa = PBXGroup;
+			children = (
+				37C543711513AA89006EDD6D /* ContentAndStyle.h */,
+				37C543721513AA89006EDD6D /* DataSource.h */,
+				37C543731513AA89006EDD6D /* DataSource.m */,
+				37C543771513AA89006EDD6D /* Event.h */,
+				37C543781513AA89006EDD6D /* Event.m */,
+				37C5437A1513AA89006EDD6D /* EventListViewController.h */,
+				37C5437B1513AA89006EDD6D /* EventListViewController.m */,
+				37C5437E1513AA89006EDD6D /* Hours.h */,
+				37C5437F1513AA89006EDD6D /* Hours.m */,
+				37C543BF1513ACB1006EDD6D /* Base64.h */,
+				37C543C01513ACB1006EDD6D /* Base64.m */,
+				37C543831513AA89006EDD6D /* Location.h */,
+				37C543841513AA89006EDD6D /* Location.m */,
+				37C543871513AA89006EDD6D /* Singleton.h */,
+				37C543881513AA89006EDD6D /* Singleton.m */,
+				37C5438A1513AA89006EDD6D /* WeeklyHours.h */,
+				37C5438B1513AA89006EDD6D /* WeeklyHours.m */,
+				37C5438C1513AA89006EDD6D /* Winery.h */,
+				37C5438D1513AA89006EDD6D /* Winery.m */,
+				37C5438F1513AA89006EDD6D /* WineryDetailViewController.h */,
+				37C543901513AA89006EDD6D /* WineryDetailViewController.m */,
+				37C543921513AA89006EDD6D /* WineryListViewController.h */,
+				37C543931513AA89006EDD6D /* WineryListViewController.m */,
+				37C543951513AA89006EDD6D /* WineryMapViewController.h */,
+				37C543961513AA89006EDD6D /* WineryMapViewController.m */,
+				37C543621513A97E006EDD6D /* AppDelegate.h */,
+				37C543631513A97E006EDD6D /* AppDelegate.m */,
+				37C5435A1513A97E006EDD6D /* Supporting Files */,
+			);
+			path = TasteOkanakan;
+			sourceTree = "<group>";
+		};
+		37C5435A1513A97E006EDD6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				37C5435B1513A97E006EDD6D /* TasteOkanakan-Info.plist */,
+				37C5435C1513A97E006EDD6D /* InfoPlist.strings */,
+				37C5435F1513A97E006EDD6D /* main.m */,
+				37C543611513A97E006EDD6D /* TasteOkanakan-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37C543741513AA89006EDD6D /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				37C543751513AA89006EDD6D /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = TasteOkanakan/en.lproj;
+			sourceTree = "<group>";
+		};
+		37C543C41513AE54006EDD6D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				37C5436E1513AA89006EDD6D /* adred.png */,
+				37C543701513AA89006EDD6D /* button.png */,
+				37C543791513AA89006EDD6D /* EventListViewController_iPhone.xib */,
+				37C5437C1513AA89006EDD6D /* events.png */,
+				37C5437D1513AA89006EDD6D /* events@2x.png */,
+				37C543811513AA89006EDD6D /* list.png */,
+				37C543821513AA89006EDD6D /* list@2x.png */,
+				37C543851513AA89006EDD6D /* map.png */,
+				37C543861513AA89006EDD6D /* map@2x.png */,
+				37C5438E1513AA89006EDD6D /* WineryDetailViewController_iPhone.xib */,
+				37C543911513AA89006EDD6D /* WineryListViewController_iPhone.xib */,
+				37C543941513AA89006EDD6D /* WineryMapViewController_iPhone.xib */,
+				37C543981513AA89006EDD6D /* woodred.png */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37C5434E1513A97E006EDD6D /* TasteOkanakan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37C543671513A97E006EDD6D /* Build configuration list for PBXNativeTarget "TasteOkanakan" */;
+			buildPhases = (
+				37C5434B1513A97E006EDD6D /* Sources */,
+				37C5434C1513A97E006EDD6D /* Frameworks */,
+				37C5434D1513A97E006EDD6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TasteOkanakan;
+			productName = TasteOkanakan;
+			productReference = 37C5434F1513A97E006EDD6D /* TasteOkanakan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37C543461513A97E006EDD6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 37C543491513A97E006EDD6D /* Build configuration list for PBXProject "TasteOkanakan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 37C543441513A97E006EDD6D;
+			productRefGroup = 37C543501513A97E006EDD6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37C5434E1513A97E006EDD6D /* TasteOkanakan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37C5434D1513A97E006EDD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C5435E1513A97E006EDD6D /* InfoPlist.strings in Resources */,
+				37C543991513AA89006EDD6D /* adred.png in Resources */,
+				37C5439B1513AA89006EDD6D /* button.png in Resources */,
+				37C5439D1513AA89006EDD6D /* InfoPlist.strings in Resources */,
+				37C5439F1513AA89006EDD6D /* EventListViewController_iPhone.xib in Resources */,
+				37C543A11513AA89006EDD6D /* events.png in Resources */,
+				37C543A21513AA89006EDD6D /* events@2x.png in Resources */,
+				37C543A51513AA89006EDD6D /* list.png in Resources */,
+				37C543A61513AA89006EDD6D /* list@2x.png in Resources */,
+				37C543A81513AA89006EDD6D /* map.png in Resources */,
+				37C543A91513AA89006EDD6D /* map@2x.png in Resources */,
+				37C543AE1513AA89006EDD6D /* WineryDetailViewController_iPhone.xib in Resources */,
+				37C543B01513AA89006EDD6D /* WineryListViewController_iPhone.xib in Resources */,
+				37C543B21513AA89006EDD6D /* WineryMapViewController_iPhone.xib in Resources */,
+				37C543B51513AA89006EDD6D /* woodred.png in Resources */,
+				37C543B81513AABD006EDD6D /* icon.png in Resources */,
+				37C543C31513AD68006EDD6D /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37C5434B1513A97E006EDD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37C543601513A97E006EDD6D /* main.m in Sources */,
+				37C543641513A97E006EDD6D /* AppDelegate.m in Sources */,
+				37C5439C1513AA89006EDD6D /* DataSource.m in Sources */,
+				37C5439E1513AA89006EDD6D /* Event.m in Sources */,
+				37C543A01513AA89006EDD6D /* EventListViewController.m in Sources */,
+				37C543A31513AA89006EDD6D /* Hours.m in Sources */,
+				37C543A71513AA89006EDD6D /* Location.m in Sources */,
+				37C543AA1513AA89006EDD6D /* Singleton.m in Sources */,
+				37C543AC1513AA89006EDD6D /* WeeklyHours.m in Sources */,
+				37C543AD1513AA89006EDD6D /* Winery.m in Sources */,
+				37C543AF1513AA89006EDD6D /* WineryDetailViewController.m in Sources */,
+				37C543B11513AA89006EDD6D /* WineryListViewController.m in Sources */,
+				37C543B31513AA89006EDD6D /* WineryMapViewController.m in Sources */,
+				37C543C11513ACB1006EDD6D /* Base64.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		37C5435C1513A97E006EDD6D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37C5435D1513A97E006EDD6D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		37C543751513AA89006EDD6D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37C543761513AA89006EDD6D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		37C543651513A97E006EDD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		37C543661513A97E006EDD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37C543681513A97E006EDD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TasteOkanakan/TasteOkanakan-Prefix.pch";
+				INFOPLIST_FILE = "TasteOkanakan/TasteOkanakan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		37C543691513A97E006EDD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TasteOkanakan/TasteOkanakan-Prefix.pch";
+				INFOPLIST_FILE = "TasteOkanakan/TasteOkanakan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37C543491513A97E006EDD6D /* Build configuration list for PBXProject "TasteOkanakan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37C543651513A97E006EDD6D /* Debug */,
+				37C543661513A97E006EDD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37C543671513A97E006EDD6D /* Build configuration list for PBXNativeTarget "TasteOkanakan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37C543681513A97E006EDD6D /* Debug */,
+				37C543691513A97E006EDD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37C543461513A97E006EDD6D /* Project object */;
+}
