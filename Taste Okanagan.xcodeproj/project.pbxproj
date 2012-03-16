@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E110D73D1502A80E00133C8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E110D73C1502A80E00133C8B /* UIKit.framework */; };
+		E110D73F1502A80E00133C8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E110D73E1502A80E00133C8B /* Foundation.framework */; };
+		E110D7411502A80E00133C8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E110D7401502A80E00133C8B /* CoreGraphics.framework */; };
+		E110D7471502A80E00133C8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E110D7451502A80E00133C8B /* InfoPlist.strings */; };
+		E110D7491502A80E00133C8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E110D7481502A80E00133C8B /* main.m */; };
+		E110D74D1502A80E00133C8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E110D74C1502A80E00133C8B /* AppDelegate.m */; };
+		E1A228AF1502C5D400AAA726 /* WineryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228AD1502C5D400AAA726 /* WineryListViewController.m */; };
+		E1A228B01502C5D400AAA726 /* WineryListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228AE1502C5D400AAA726 /* WineryListViewController_iPhone.xib */; };
+		E1A228B41502C63A00AAA726 /* WineryMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228B21502C63A00AAA726 /* WineryMapViewController.m */; };
+		E1A228B51502C63A00AAA726 /* WineryMapViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228B31502C63A00AAA726 /* WineryMapViewController_iPhone.xib */; };
+		E1A228B91502C65E00AAA726 /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228B71502C65E00AAA726 /* EventListViewController.m */; };
+		E1A228BA1502C65E00AAA726 /* EventListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228B81502C65E00AAA726 /* EventListViewController_iPhone.xib */; };
+		E1A228BE1502C68300AAA726 /* WineryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A228BC1502C68300AAA726 /* WineryDetailViewController.m */; };
+		E1A228BF1502C68300AAA726 /* WineryDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A228BD1502C68300AAA726 /* WineryDetailViewController_iPhone.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E110D7381502A80E00133C8B /* Taste Okanagan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taste Okanagan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E110D73C1502A80E00133C8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E110D73E1502A80E00133C8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E110D7401502A80E00133C8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E110D7441502A80E00133C8B /* Taste Okanagan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Taste Okanagan-Info.plist"; sourceTree = "<group>"; };
+		E110D7461502A80E00133C8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E110D7481502A80E00133C8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E110D74A1502A80E00133C8B /* Taste Okanagan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taste Okanagan-Prefix.pch"; sourceTree = "<group>"; };
+		E110D74B1502A80E00133C8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E110D74C1502A80E00133C8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E1A228AC1502C5D400AAA726 /* WineryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryListViewController.h; sourceTree = "<group>"; };
+		E1A228AD1502C5D400AAA726 /* WineryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryListViewController.m; sourceTree = "<group>"; };
+		E1A228AE1502C5D400AAA726 /* WineryListViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineryListViewController_iPhone.xib; sourceTree = "<group>"; };
+		E1A228B11502C63A00AAA726 /* WineryMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryMapViewController.h; sourceTree = "<group>"; };
+		E1A228B21502C63A00AAA726 /* WineryMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryMapViewController.m; sourceTree = "<group>"; };
+		E1A228B31502C63A00AAA726 /* WineryMapViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineryMapViewController_iPhone.xib; sourceTree = "<group>"; };
+		E1A228B61502C65E00AAA726 /* EventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
+		E1A228B71502C65E00AAA726 /* EventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
+		E1A228B81502C65E00AAA726 /* EventListViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventListViewController_iPhone.xib; sourceTree = "<group>"; };
+		E1A228BB1502C68300AAA726 /* WineryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryDetailViewController.h; sourceTree = "<group>"; };
+		E1A228BC1502C68300AAA726 /* WineryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryDetailViewController.m; sourceTree = "<group>"; };
+		E1A228BD1502C68300AAA726 /* WineryDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineryDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E110D7351502A80E00133C8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E110D73D1502A80E00133C8B /* UIKit.framework in Frameworks */,
+				E110D73F1502A80E00133C8B /* Foundation.framework in Frameworks */,
+				E110D7411502A80E00133C8B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E110D72D1502A80D00133C8B = {
+			isa = PBXGroup;
+			children = (
+				E110D7421502A80E00133C8B /* Taste Okanagan */,
+				E110D73B1502A80E00133C8B /* Frameworks */,
+				E110D7391502A80E00133C8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E110D7391502A80E00133C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E110D7381502A80E00133C8B /* Taste Okanagan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E110D73B1502A80E00133C8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E110D73C1502A80E00133C8B /* UIKit.framework */,
+				E110D73E1502A80E00133C8B /* Foundation.framework */,
+				E110D7401502A80E00133C8B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E110D7421502A80E00133C8B /* Taste Okanagan */ = {
+			isa = PBXGroup;
+			children = (
+				E110D74B1502A80E00133C8B /* AppDelegate.h */,
+				E110D74C1502A80E00133C8B /* AppDelegate.m */,
+				E1A228A91502C55F00AAA726 /* View Controllers */,
+				E110D7431502A80E00133C8B /* Supporting Files */,
+			);
+			path = "Taste Okanagan";
+			sourceTree = "<group>";
+		};
+		E110D7431502A80E00133C8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E110D7441502A80E00133C8B /* Taste Okanagan-Info.plist */,
+				E110D7451502A80E00133C8B /* InfoPlist.strings */,
+				E110D7481502A80E00133C8B /* main.m */,
+				E110D74A1502A80E00133C8B /* Taste Okanagan-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1A228A91502C55F00AAA726 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1A228AC1502C5D400AAA726 /* WineryListViewController.h */,
+				E1A228AD1502C5D400AAA726 /* WineryListViewController.m */,
+				E1A228AE1502C5D400AAA726 /* WineryListViewController_iPhone.xib */,
+				E1A228B11502C63A00AAA726 /* WineryMapViewController.h */,
+				E1A228B21502C63A00AAA726 /* WineryMapViewController.m */,
+				E1A228B31502C63A00AAA726 /* WineryMapViewController_iPhone.xib */,
+				E1A228B61502C65E00AAA726 /* EventListViewController.h */,
+				E1A228B71502C65E00AAA726 /* EventListViewController.m */,
+				E1A228B81502C65E00AAA726 /* EventListViewController_iPhone.xib */,
+				E1A228BB1502C68300AAA726 /* WineryDetailViewController.h */,
+				E1A228BC1502C68300AAA726 /* WineryDetailViewController.m */,
+				E1A228BD1502C68300AAA726 /* WineryDetailViewController_iPhone.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E110D7371502A80E00133C8B /* Taste Okanagan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E110D76A1502A80E00133C8B /* Build configuration list for PBXNativeTarget "Taste Okanagan" */;
+			buildPhases = (
+				E110D7341502A80E00133C8B /* Sources */,
+				E110D7351502A80E00133C8B /* Frameworks */,
+				E110D7361502A80E00133C8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Taste Okanagan";
+			productName = "Taste Okanagan";
+			productReference = E110D7381502A80E00133C8B /* Taste Okanagan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E110D72F1502A80D00133C8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = E110D7321502A80D00133C8B /* Build configuration list for PBXProject "Taste Okanagan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E110D72D1502A80D00133C8B;
+			productRefGroup = E110D7391502A80E00133C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E110D7371502A80E00133C8B /* Taste Okanagan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E110D7361502A80E00133C8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E110D7471502A80E00133C8B /* InfoPlist.strings in Resources */,
+				E1A228B01502C5D400AAA726 /* WineryListViewController_iPhone.xib in Resources */,
+				E1A228B51502C63A00AAA726 /* WineryMapViewController_iPhone.xib in Resources */,
+				E1A228BA1502C65E00AAA726 /* EventListViewController_iPhone.xib in Resources */,
+				E1A228BF1502C68300AAA726 /* WineryDetailViewController_iPhone.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E110D7341502A80E00133C8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E110D7491502A80E00133C8B /* main.m in Sources */,
+				E110D74D1502A80E00133C8B /* AppDelegate.m in Sources */,
+				E1A228AF1502C5D400AAA726 /* WineryListViewController.m in Sources */,
+				E1A228B41502C63A00AAA726 /* WineryMapViewController.m in Sources */,
+				E1A228B91502C65E00AAA726 /* EventListViewController.m in Sources */,
+				E1A228BE1502C68300AAA726 /* WineryDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E110D7451502A80E00133C8B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E110D7461502A80E00133C8B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E110D7681502A80E00133C8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E110D7691502A80E00133C8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E110D76B1502A80E00133C8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taste Okanagan/Taste Okanagan-Prefix.pch";
+				INFOPLIST_FILE = "Taste Okanagan/Taste Okanagan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E110D76C1502A80E00133C8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Taste Okanagan/Taste Okanagan-Prefix.pch";
+				INFOPLIST_FILE = "Taste Okanagan/Taste Okanagan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E110D7321502A80D00133C8B /* Build configuration list for PBXProject "Taste Okanagan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E110D7681502A80E00133C8B /* Debug */,
+				E110D7691502A80E00133C8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E110D76A1502A80E00133C8B /* Build configuration list for PBXNativeTarget "Taste Okanagan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E110D76B1502A80E00133C8B /* Debug */,
+				E110D76C1502A80E00133C8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E110D72F1502A80D00133C8B /* Project object */;
+}
